@@ -1,0 +1,19 @@
+.flying-heart {
+    position: fixed;
+    font-size: 24px;
+    animation: flyInAllDirections 5s ease-in-out forwards;
+    z-index: 9999;
+    transform: translate(-50%, -50%);
+}
+
+/* Keyframe-Animation für Flugbewegung */
+@keyframes flyInAllDirections {
+    from {
+        transform: translate(-50%, -50%) scale(0.8);
+        opacity: 1;
+    }
+    to {
+        transform: translate(calc(var(--end-x)), calc(var(--end-y))) scale(1.5);
+        opacity: 0;
+    }
+}

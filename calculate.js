@@ -22,11 +22,47 @@ document.getElementById('pace').addEventListener('input', () => {
   lastManualField = 'pace';
 });
 
+
+// calculate.js Anpassung zur Einheitenumrechnung
 function updateLabels() {
   const unit = document.getElementById('unit').value;
   document.getElementById('speed-label').textContent = unit === 'km' ? 'Tempo (in km/h)' : 'Tempo (in mi/h)';
   document.getElementById('pace-label').textContent = unit === 'km' ? 'Tempo (min/km)' : 'Tempo (min/mi)';
+  updateConversions();
+
+  if (unit === 'km') {
+    document.getElementById('speed-conversion').style.display = 'block';
+    document.getElementById('pace-conversion').style.display = 'block';
+  } else {
+    document.getElementById('speed-conversion').style.display = 'none';
+    document.getElementById('pace-conversion').style.display = 'none';
+  }
 }
+
+  function updateConversions() {
+  const speedInput = document.getElementById('speed').value;
+  const paceInput = document.getElementById('pace').value;
+
+  // Berechnung von km/h zu mi/h und min/km zu min/mi
+  const conversionFactor = 1.60934;
+  const speedInMilesPerHour = (parseFloat(speedInput) / conversionFactor).toFixed(2);
+  const paceParts = paceInput.split(':');
+  const paceInMinutes = parseInt(paceParts[0], 10) + (parseInt(paceParts[1], 10) / 60);
+  const paceInMinutesPerMile = (paceInMinutes * conversionFactor).toFixed(2);
+  const paceMinutes = Math.floor(paceInMinutesPerMile);
+  const paceSeconds = Math.round((paceInMinutesPerMile - paceMinutes) * 60);
+  const formattedPace = `${paceMinutes}:${paceSeconds.toString().padStart(2, '0')}`;
+
+  document.getElementById('speed-conversion').textContent = `${speedInMilesPerHour} mi/h`;
+  document.getElementById('pace-conversion').textContent = `${formattedPace} min/mi`;
+}
+updateLabels();
+document.getElementById('unit').addEventListener('change', updateLabels);
+document.getElementById('distance').addEventListener('input', updateConversions);
+document.getElementById('time').addEventListener('input', updateConversions);
+document.getElementById('speed').addEventListener('input', updateConversions);
+document.getElementById('pace').addEventListener('input', updateConversions);
+document.getElementById('calculate-button').addEventListener('click', updateConversions);
 
 function calculatePaceAutomatically() {
   const distance = parseFloat(document.getElementById('distance').value);
@@ -82,7 +118,7 @@ function updateRaceTimes(pace) {
     'Marathon': unit === 'km' ? 42.195 : 42.195 * 0.621371
   };
 
-  let resultHtml = `<h3>Renndauer für populäre Distanzen:</h3>`;
+  let resultHtml = ``;
 
   for (const [race, dist] of Object.entries(raceDistances)) {
     const raceTime = formatTime(Math.round(pace * dist));

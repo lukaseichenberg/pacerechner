@@ -1,3 +1,6 @@
+html, body {
+    height: 100%;
+}
 body {
     font-family: "Montserrat", serif;
     font-optical-sizing: auto;
@@ -7,14 +10,12 @@ body {
     margin: 0 auto;
     padding: 20px;
 }
-
 label {
     display: inline-block;
     margin: 10px 15px 5px 0;
     width: auto;
     font-size: 12px;
 }
-
 input {
     padding: 8px;
     width: 25%;
@@ -22,6 +23,7 @@ input {
     box-sizing: border-box;
     display: inline-block;
     font-size: 15px;
+    height: 35px;
 }
 input:focus
 {
@@ -39,12 +41,13 @@ select {
 }
 button {
     padding: 10px 15px;
-    background-color: #1be3fd;
-    color: rgb(25, 22, 235);
+    background-color: #e9e9e9;
+    color: black;
     font-weight: bold;
-    border: none;
     cursor: pointer;
     font-family: "Montserrat";
+    border-radius: 5px;
+    border: none;
 }
 .unit {
     font-size: 16px;
@@ -55,7 +58,7 @@ button {
     font-weight: bold;
 }
 
-.distance {
+.race {
     font-weight: bold;
 }
 
