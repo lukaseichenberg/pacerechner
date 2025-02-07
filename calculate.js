@@ -31,9 +31,11 @@ function updateLabels() {
   updateConversions();
 
   if (unit === 'km') {
+    document.getElementById('unit-conversion').style.display = 'block';
     document.getElementById('speed-conversion').style.display = 'block';
     document.getElementById('pace-conversion').style.display = 'block';
   } else {
+    document.getElementById('unit-conversion').style.display = 'none';
     document.getElementById('speed-conversion').style.display = 'none';
     document.getElementById('pace-conversion').style.display = 'none';
   }

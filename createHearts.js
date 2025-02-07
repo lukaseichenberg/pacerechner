@@ -6,7 +6,7 @@ function createFlyingHeart() {
 
     const button = document.getElementById('calculate-button');
     const buttonRect = button.getBoundingClientRect();
-    const buttonPadding = 50;
+    const buttonPadding = 100;
 
     const windowWidth = window.innerWidth;
     const windowHeight = window.innerHeight;
@@ -34,11 +34,11 @@ function createFlyingHeart() {
     heart.style.setProperty('--end-x', `${endX}px`);
     heart.style.setProperty('--end-y', `${endY}px`);
 
-    setTimeout(() => heart.remove(), 3000);
+    setTimeout(() => heart.remove(), 1000);
 }
 
 document.getElementById('calculate-button').addEventListener('click', () => {
-    const animationDuration = 3000;
+    const animationDuration = 1000;
     const interval = 10;
 
     const animationInterval = setInterval(createFlyingHeart, interval);
