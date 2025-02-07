@@ -6,9 +6,7 @@ body {
     font-optical-sizing: auto;
     font-weight:normal;
     font-style: normal;
-    max-width: 600px;
-    margin: 0 auto;
-    padding: 20px;
+    min-height: 100vh
 }
 label {
     display: inline-block;
@@ -45,7 +43,6 @@ button {
     color: black;
     font-weight: bold;
     cursor: pointer;
-    font-family: "Montserrat";
     border-radius: 5px;
     border: none;
 }

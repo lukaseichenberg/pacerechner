@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Pacerechner</title>
+  <title>Über</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="heartsStyle.css">
   <link rel="stylesheet" href="navbar.css">
@@ -30,56 +30,6 @@
         <li class="menu-button"><a href="#" id="show-sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
     </ul>
   </nav>
-  <h1>Pacerechner</h1>
-  <div class="calculator">
-    <form id="pace-form">
-      <div class="unit">
-        <label class="unit" for="unit">Einheit:</label>
-        <select class="unit" id="unit" onchange="updateLabels()">
-          <option value="km" selected>Kilometer</option>
-          <option value="mi">Meilen</option>
-        </select>
-      </div>
-      <div class="distance">
-        <input type="number" id="distance" value="10" step="any">
-        <label for="distance">Distanz (in km oder Meilen)</label>
-      </div>
-      <div class="time">
-        <input type="text" id="time" value="00:50:00">
-        <label id="time-label" for="time">Zeit (hh:mm:ss)</label>
-      </div>
-      <div class="speed">
-          <p>oder</p>
-          <input type="number" id="speed" value="12" step="any">
-          <label id="speed-label" for="speed">Tempo (in km/h)</label>
-      </div>
-      <br>
-      <div class="pace">
-          <p>oder</p>
-          <input type="text" id="pace" value="05:00">
-          <label id="pace-label" for="pace">Tempo (min/km)</label>
-      </div>
-      <br>
-      <button type="button" id="calculate-button">Pace berechnen</button> 
-    </form>
-  </div>
-  <div class="conversion-results">
-    <h2 id="unit-conversion">Umrechnung:</h2>
-    <p id="speed-conversion"></p>
-    <p id="pace-conversion"></p>
-  </div>   
-  <div class="headline">
-    <h2>Renndauer für populäre Distanzen:</h2>
-  </div>
-  <div class="results" id="results">
-    <p><span class="race">5 km:</span> <span class="time">00:12:30</span></p>
-    <p><span class="race">10 km:</span> <span class="time">00:25:00</span></p>
-    <p><span class="race">Halbmarathon:</span> <span class="time">00:52:45</span></p>
-    <p><span class="race">Marathon:</span> <span class="time">01:45:29</span></p>
-  </div>
-
-  <script src="calculate.js"></script>
-  <script src="createHearts.js"></script>
   <script src="navbar.js"></script>
 </body>
 </html>
