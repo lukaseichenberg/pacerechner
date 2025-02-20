@@ -12,6 +12,22 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
+  <style>
+    @keyframes scrollFade {
+    from {
+        opacity: 0;
+        transform: translateY(50px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+  }
+
+  .scroll-list__wrp > * {
+      animation: scrollFade 1.6s ease-in-out;
+  }
+  </style>
 </head>
 <body>
   <nav>
@@ -30,8 +46,17 @@
         <li class="menu-button"><a href="#" id="show-sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
     </ul>
   </nav>
-  <h1>Pacerechner</h1>
-  <div class="calculator">
+  <div class="headline">
+    <h1>Pacerechner</h1>
+    <p>Herzlich willkommen auf der Seite!<br>
+      Ich freue mich, dass Du hier bist!<br>
+      Hier kannst Du Dein Tempo für eine bestimmte Distanz berechnen lassen. 
+      Gib einfach die Distanz und die Zeit oder das Tempo ein und klicke auf "Pace berechnen". 
+      Du kannst auch die Einheit (Kilometer oder Meilen) auswählen.<br>
+      Viel Spaß beim Ausprobieren!
+    </p>
+  </div>
+  <div class="calculator scroll-list__wrp">
     <form id="pace-form">
       <div class="unit">
         <label class="unit" for="unit">Einheit:</label>
@@ -63,23 +88,48 @@
       <button type="button" id="calculate-button">Pace berechnen</button> 
     </form>
   </div>
-  <div class="conversion-results">
-    <h2 id="unit-conversion">Umrechnung:</h2>
-    <p id="speed-conversion"></p>
-    <p id="pace-conversion"></p>
-  </div>   
-  <div class="headline">
-    <h2>Renndauer für populäre Distanzen:</h2>
-  </div>
-  <div class="results" id="results">
-    <p><span class="race">5 km:</span> <span class="time">00:12:30</span></p>
-    <p><span class="race">10 km:</span> <span class="time">00:25:00</span></p>
-    <p><span class="race">Halbmarathon:</span> <span class="time">00:52:45</span></p>
-    <p><span class="race">Marathon:</span> <span class="time">01:45:29</span></p>
-  </div>
+  <div class="scroll-list__wrp">
+    <div class="conversion-results">
+      <h2 id="unit-conversion">Umrechnung:</h2>
+      <p id="speed-conversion"></p>
+      <p id="pace-conversion"></p>
+    </div>  
+    <div class="results" id="results">
+      <h2>Renndauer für populäre Distanzen:</h2>
+      <p><span class="race">5 km:</span> <span class="time">00:12:30</span></p>
+      <p><span class="race">10 km:</span> <span class="time">00:25:00</span></p>
+      <p><span class="race">Halbmarathon:</span> <span class="time">00:52:45</span></p>
+      <p><span class="race">Marathon:</span> <span class="time">01:45:29</span></p>
+    </div>
+</div>
+<div class="scroll-list__wrp">
+  <h3>Was bedeutet Pace?</h3>
+  <p>Pace ist Englisch und bedeutet Tempo.<br>
+  Es stellt die Einheit dar, mit der Läuferinnen und Läufer ihre Geschwindigkeiten und Ergebnisse vergleichen.
+  Die Pace wird entweder in Minuten pro Kilometer oder in Kilometer pro Stunde angegeben. Das englische Pendant sind Minute pro Meile und Meilen pro Stunde.<br></p>
+</div>
 
   <script src="calculate.js"></script>
   <script src="createHearts.js"></script>
   <script src="navbar.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+        const scrollItems = document.querySelectorAll(".scroll-list__wrp");
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                } else {
+                    entry.target.classList.remove("visible");
+                }
+            });
+        }, { threshold: 0.5 });
+    
+        scrollItems.forEach(item => {
+            observer.observe(item);
+        });
+    });
+    </script>    
 </body>
 </html>
