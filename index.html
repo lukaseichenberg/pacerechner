@@ -46,7 +46,7 @@
         <li class="menu-button"><a href="#" id="show-sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
     </ul>
   </nav>
-  <div class="headline">
+  <div class="scroll-list__wrp">
     <h1>Pacerechner</h1>
     <p>Herzlich willkommen auf der Seite!<br>
       Ich freue mich, dass Du hier bist!<br>
@@ -67,7 +67,7 @@
       </div>
       <div class="distance">
         <input type="number" id="distance" value="10" step="any">
-        <label for="distance">Distanz (in km oder Meilen)</label>
+        <label for="distance">Distanz</label>
       </div>
       <div class="time">
         <input type="text" id="time" value="00:50:00">
@@ -93,9 +93,9 @@
       <h2 id="unit-conversion">Umrechnung:</h2>
       <p id="speed-conversion"></p>
       <p id="pace-conversion"></p>
+      <h2>Renndauer für populäre Distanzen:</h2>
     </div>  
     <div class="results" id="results">
-      <h2>Renndauer für populäre Distanzen:</h2>
       <p><span class="race">5 km:</span> <span class="time">00:12:30</span></p>
       <p><span class="race">10 km:</span> <span class="time">00:25:00</span></p>
       <p><span class="race">Halbmarathon:</span> <span class="time">00:52:45</span></p>
@@ -103,10 +103,21 @@
     </div>
 </div>
 <div class="scroll-list__wrp">
-  <h3>Was bedeutet Pace?</h3>
-  <p>Pace ist Englisch und bedeutet Tempo.<br>
-  Es stellt die Einheit dar, mit der Läuferinnen und Läufer ihre Geschwindigkeiten und Ergebnisse vergleichen.
-  Die Pace wird entweder in Minuten pro Kilometer oder in Kilometer pro Stunde angegeben. Das englische Pendant sind Minute pro Meile und Meilen pro Stunde.<br></p>
+  <button class="accordion">Was bedeutet Pace?</button>
+  <div class="panel">
+    <p>Pace ist Englisch und bedeutet Tempo.<br>
+      Es stellt die Einheit dar, mit der Läuferinnen und Läufer ihre Geschwindigkeiten und Ergebnisse vergleichen.
+      Die Pace wird entweder in Minuten pro Kilometer oder in Kilometer pro Stunde angegeben. Das englische Pendant sind Minute pro Meile und Meilen pro Stunde.</p>
+  </div>
+  <button class="accordion">Section 2</button>
+  <div class="panel">
+    <p>Lorem ipsum...</p>
+  </div>
+
+  <button class="accordion">Section 3</button>
+  <div class="panel">
+    <p>Lorem ipsum...</p>
+  </div>
 </div>
 
   <script src="calculate.js"></script>
@@ -124,12 +135,36 @@
                     entry.target.classList.remove("visible");
                 }
             });
-        }, { threshold: 0.5 });
+        }, { threshold: 0.7 });
     
         scrollItems.forEach(item => {
             observer.observe(item);
         });
     });
+
+    var acc = document.getElementsByClassName("accordion");
+
+    for (var i = 0; i < acc.length; i++) {
+  acc[i].addEventListener("click", function() {
+    for (var j = 0; j < acc.length; j++) {
+      if (acc[j] !== this) {
+        acc[j].classList.remove("active");
+        acc[j].nextElementSibling.style.maxHeight = null;
+      }
+    }
+    
+    this.classList.toggle("active");
+    var panel = this.nextElementSibling;
+    if (panel.style.maxHeight) {
+      panel.style.maxHeight = null;
+    } else {
+      panel.style.maxHeight = panel.scrollHeight + "px";
+    }
+  });
+}
     </script>    
 </body>
+<footer>
+  <p>Lorem ipsum.</p> 
+</footer>
 </html>

@@ -34,11 +34,11 @@ function createFlyingHeart() {
     heart.style.setProperty('--end-x', `${endX}px`);
     heart.style.setProperty('--end-y', `${endY}px`);
 
-    setTimeout(() => heart.remove(), 1000);
+    setTimeout(() => heart.remove(), 1500);
 }
 
 document.getElementById('calculate-button').addEventListener('click', () => {
-    const animationDuration = 1000;
+    const animationDuration = 2000;
     const interval = 10;
 
     const animationInterval = setInterval(createFlyingHeart, interval);
