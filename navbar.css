@@ -34,6 +34,10 @@ nav{
   nav li:first-child{
     margin-right: auto;
   }
+  nav a img.nav-logo {
+    height: 24px;
+    margin-right: 8px;
+  }
   .sidebar{
     position: fixed;
     top: 0; 
