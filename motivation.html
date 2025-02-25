@@ -5,9 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Motivationsschub</title>
   <link rel="stylesheet" href="style.css">
-  <link rel="stylesheet" href="heartsStyle.css">
-  <link rel="stylesheet" href="navbar.css">
-  <link rel="stylesheet" href="confetti.css">
   <link rel="icon" href="https://raw.githubusercontent.com/lukaseichenberg/pacerechner/refs/heads/main/favicon.png" type="image/png">
   <link rel="apple-touch-icon" href="https://raw.githubusercontent.com/lukaseichenberg/pacerechner/refs/heads/main/favicon-2.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -24,26 +21,59 @@
       <li><a href="about.html">Über</a></li>
   </ul>
     <ul>
-        <li><a href="index.html">Pacerechner</a></li>
+      <li><a href="index.html"><img src="images/favicon-2.png" alt="Logo" class="nav-logo">Pacerechner</a></li>
         <li class="hideOnMobile"><a href="motivation.html">Motivationsschub</a></li>
         <li class="hideOnMobile"><a href="tabelle.html">Tempotabelle</a></li>
         <li class="hideOnMobile"><a href="about.html">Über</a></li>
         <li class="menu-button"><a href="#" id="show-sidebar-button"><svg xmlns="http://www.w3.org/2000/svg" height="26" viewBox="0 96 960 960" width="26"><path d="M120 816v-60h720v60H120Zm0-210v-60h720v60H120Zm0-210v-60h720v60H120Z"/></svg></a></li>
     </ul>
   </nav>
-  <div class="container">
+  <div class="scroll-list__wrp">
     <h1>Laufen macht glücklich!</h1>
     <p>Laufen ist nicht nur gut für den Körper, sondern auch für die Seele. Es gibt viele Gründe, warum Laufen glücklich macht. Hier sind einige davon:</p>
-    <ul>
-      <li>Laufen macht glücklich, weil es den Kopf frei macht.</li>
-      <li>Laufen macht glücklich, weil es Stress abbaut.</li>
-      <li>Laufen macht glücklich, weil es das Selbstbewusstsein stärkt.</li>
-      <li>Laufen macht glücklich, weil es das Immunsystem stärkt.</li>
-      <li>Laufen macht glücklich, weil es die Kreativität fördert.</li>
-      <li>Laufen macht glücklich, weil es die Lebensqualität steigert.</li>
-      <li>Laufen macht glücklich, weil es das Glückshormon Endorphin ausschüttet.</li>
-    </ul>
-    <p>Also, schnapp dir deine Laufschuhe und geh raus! Du wirst sehen, es lohnt sich!</p>
+  </div>
+  <div class="center, scroll-list__wrp">
+    <div class="title">
+      <h2>Warum Laufen glücklich macht:</h2>
+    </div>
+    <div class="slider">
+      <div class="cards">
+        <div class="card">
+          <img class="material-icons" src="/Images/brain-solid.svg" alt="icon">
+          <div class="subtitle">Laufen macht den Kopf frei.</div>
+        </div>
+        <div class="card">
+          <img class="material-icons" src="Images/leaf-solid.svg" alt="icon">
+          <div class="subtitle">Laufen baut Stress ab.</div>
+        </div>
+        <div class="card">
+          <img class="material-icons" src="Images/award-solid.svg" alt="icon">
+          <div class="subtitle">Laufen stärkt das Selbstbewusstsein.</div>
+        </div>
+        <div class="card">
+          <img class="material-icons" src="Images/lightbulb-solid.svg" alt="icon">
+          <div class="subtitle">Laufen fördert die Kreativität.</div>
+        </div>
+        <div class="card">
+          <img class="material-icons" src="Images/heart-pulse-solid.svg" alt="icon">
+          <div class="subtitle">Laufen steigert die Lebensqualität.</div>
+        </div>
+        <div class="card">
+          <img class="material-icons" src="Images/shield-heart-solid.svg" alt="icon">
+          <div class="subtitle">Laufen stärkt das Immunsystem.</div>
+        </div>
+        <div class="card">
+          <img class="material-icons" src="Images/clover-solid.svg" alt="icon">
+          <div class="subtitle">Laufen schüttet das Glückshormon Endorphin aus.</div>
+        </div>
+      </div>
+    </div>
+  </div> 
+  <div class="scroll-list__wrp">
+    <h2 style="text-align: center;">Mehr als genug gute Gründe!</h2> 
+    <br>Also, schnapp dir deine Laufschuhe und geh raus! Du wirst sehen, es lohnt sich!<br></br>
+    Dir reicht diese Motivation nicht? Dann lass dich von mir motivieren! Klicke auf den Button und lass dich überraschen!
+    </p>
     <button class="fire-btn">Motiviere mich!</button>
   </div>
   <script src="navbar.js"></script>
@@ -52,16 +82,37 @@
     const fireBtn = document.querySelector('.fire-btn');
     fireBtn.addEventListener('click', () => {
         confetti({
-            particleCount: 300,
+            particleCount: 400,
             spread: 70,
             origin: { x: 1, y: 0.9 },
         });
         confetti({
-            particleCount: 300,
+            particleCount: 400,
             spread: 70,
             origin: { x: 0, y: 0.9 },
         });
     });
+
+    document.addEventListener("DOMContentLoaded", function () {
+        const scrollItems = document.querySelectorAll(".scroll-list__wrp");
+    
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add("visible");
+                } else {
+                    entry.target.classList.remove("visible");
+                }
+            });
+        }, { threshold: 0.7 });
+    
+        scrollItems.forEach(item => {
+            observer.observe(item);
+        });
+    });
   </script>
 </body>
+<footer>
+  <p>Lorem ipsum.</p> 
+</footer>
 </html>

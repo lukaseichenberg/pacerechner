@@ -6,28 +6,11 @@
   <title>Home</title>
   <link rel="stylesheet" href="style.css">
   <link rel="stylesheet" href="heartsStyle.css">
-  <link rel="stylesheet" href="navbar.css">
   <link rel="website icon" href="images/favicon.png" type="png">
   <link rel="apple-touch-icon" href="Images/favicon-2.png" type="png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap">
-  <style>
-    @keyframes scrollFade {
-    from {
-        opacity: 0;
-        transform: translateY(50px);
-    }
-    to {
-        opacity: 1;
-        transform: translateY(0);
-    }
-  }
-
-  .scroll-list__wrp > * {
-      animation: scrollFade 1.6s ease-in-out;
-  }
-  </style>
 </head>
 <body>
   <nav>
@@ -109,14 +92,36 @@
       Es stellt die Einheit dar, mit der Läuferinnen und Läufer ihre Geschwindigkeiten und Ergebnisse vergleichen.
       Die Pace wird entweder in Minuten pro Kilometer oder in Kilometer pro Stunde angegeben. Das englische Pendant sind Minute pro Meile und Meilen pro Stunde.</p>
   </div>
-  <button class="accordion">Section 2</button>
+  <button class="accordion">Wie wird die Pace gemessen?</button>
   <div class="panel">
-    <p>Lorem ipsum...</p>
+    <p>Der Pace kann beim Laufen mit einer GPS Uhr / Sportuhr oder einem Handy mit einer App wie Runkeeper, Strava oder Runtastic gemessen werden. Die GPS Uhren /Apps berechnen neben dem aktuellen Pace auch den Mittelwert und können mittels Alarm den Läufer informieren, wenn er im Training oder im Wettkampf über oder unter einer bestimmten Pace läuft.</p>
   </div>
-
-  <button class="accordion">Section 3</button>
+  <button class="accordion">Wie wird die Pace berechnet?</button>
   <div class="panel">
-    <p>Lorem ipsum...</p>
+    <p>Den Pace berechnet man, indem man die benötigte Zeit (in Minuten) durch die zurückgelegte Strecke (in Kilometern) teilt. Ein Läufer läuft 10 km in 50 Minuten. Wie hoch ist seine Pace?<br>
+      </br>
+      <b>Beispiel:</b>
+      <br>
+      <ul>
+        <li><b>Distanz:</b> 10 km</li>
+        <li><b>Gelaufen in:</b> 50 Minuten</li>
+        <li><b>Pace Berechnung:</b> 50 min / 10 km = 5 min/km</li>
+      </ul>
+      <b>Etwas komplizierter wird dies bei „krummen“ Werten</b><br>
+      </br>
+      Läuft man zum Beispiel 10 km in 48 Minuten sieht die Rechnung wie folgt aus:<br>
+      </br>
+      48 min / 10 km = 4,8 min / km<br>
+      </br>
+      Nun müssen wir die 0,8 Minuten in Sekunden umrechnen:<br>
+      </br>
+      0,8 min * 60 = 48 Sekunden<br>
+      </br>
+      Der Pace beträgt also 4:48 min / km. Mit unserem Tool / Pace Rechner könnt Ihr Euch aufwendige Rechnungen aber sparen. Einfach Strecke und Zeit eingeben und unser Tool berechnet Euch Euren Pace.</p>
+  </div>
+  <button class="accordion">Wie kann ich meine Pace verbessern?</button>
+  <div class="panel">
+    <p>Um die Pace beim laufen zu verbessern sollte man regelmäßig trainieren. Neben regelmäßigen Intervallläufen sind besonders die langsamen Läufe / Regenerationsläufe wichtig!</p>
   </div>
 </div>
 
@@ -135,7 +140,7 @@
                     entry.target.classList.remove("visible");
                 }
             });
-        }, { threshold: 0.7 });
+        }, { threshold: 0.5 });
     
         scrollItems.forEach(item => {
             observer.observe(item);

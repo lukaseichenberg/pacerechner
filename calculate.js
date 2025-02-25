@@ -55,8 +55,8 @@ function updateLabels() {
   const paceSeconds = Math.round((paceInMinutesPerMile - paceMinutes) * 60);
   const formattedPace = `${paceMinutes}:${paceSeconds.toString().padStart(2, '0')}`;
 
-  document.getElementById('speed-conversion').textContent = `${speedInMilesPerHour} mi/h`;
-  document.getElementById('pace-conversion').textContent = `${formattedPace} min/mi`;
+  document.getElementById('speed-conversion').textContent = `In Meilen pro Stunde: ${speedInMilesPerHour} mi/h`;
+  document.getElementById('pace-conversion').textContent = `In Minuten pro Meile: ${formattedPace} min/mi`;
 }
 updateLabels();
 document.getElementById('unit').addEventListener('change', updateLabels);
